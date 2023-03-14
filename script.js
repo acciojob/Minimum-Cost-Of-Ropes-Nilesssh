@@ -8,6 +8,10 @@ function calculateMinCost() {
 			ans.push(Number(element));
 		}
 	})
-  document.getElementById("result").innerHTML = typeof  ans;
+	let sum = 0;
+	ans.forEach( x => {
+		sum += x;
+	})
+  document.getElementById("result").innerHTML = sum;
   
 }  
