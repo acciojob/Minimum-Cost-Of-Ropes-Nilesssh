@@ -8,10 +8,20 @@ function calculateMinCost() {
 			ans.push(Number(element));
 		}
 	})
+	let result = [];
 	let sum = 0;
-	ans.forEach( x => {
-		sum += x;
+	
+	ans.sort();
+	let check = ans[0];
+	for(let i=0; i<ans.length-1; i++){
+		if(ans[i]!=','){
+			 result.push(check+=ans[i+1]);
+		}
+	}
+	result.forEach(res =>{
+		 sum += res;
 	})
+	
   document.getElementById("result").innerHTML = sum;
   
 }  
