@@ -10,17 +10,15 @@ function calculateMinCost() {
 	})
 	let result = [];
 	let sum = 0;
-	
-	ans.sort();
-	let check = ans[0];
-	for(let i=0; i<ans.length-1; i++){
-		if(ans[i]!=','){
-			 result.push(check+=ans[i+1]);
-		}
+
+	for (let i = 1; i < ans.length; i++) {
+		ans.sort((a,b)=>a-b);
+		result[i-1] = ans[i]+ans[i-1];
+		ans[i] = ans[i]+ans[i-1];
 	}
-	result.forEach(res =>{
-		 sum += res;
-	})
+	sum = result.reduce((total,current )=>{
+		return total + current;
+	},0)
 	
   document.getElementById("result").innerHTML = sum;
   
